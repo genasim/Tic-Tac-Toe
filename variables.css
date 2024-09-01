@@ -1,0 +1,15 @@
+:root {
+    --colorPrimary: #509faa;
+    --colorSecondary: #d0bc2a;
+    --colorSubtle: #d0bd2a87;
+    --colorText: #e9e4e4;
+    --lineWeight: 4px;
+
+    --colorModalBackground: #c9ac7c;
+    --colorModalBackdrop: #000000;
+
+    --colorX: #ffffff;
+    --colorO: #1d707d;
+
+    font-size: 12px;
+}

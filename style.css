@@ -1,0 +1,176 @@
+@import "./variables.css";
+
+body {
+    background: var(--colorPrimary);
+    color: var(--colorText);
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+}
+
+.symbol-x {
+    color: var(--colorX);
+}
+
+.symbol-o {
+    color: var(--colorO);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: calc(100vh - 4rem);
+    padding: 0 4rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100%;
+    max-width: 40rem;
+    margin: 2.5rem 0;
+    aspect-ratio: 1/1;
+}
+
+.game-board .tile {
+    --fontSize: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--lineWeight) solid var(--colorSecondary);
+    font-size: var(--fontSize);
+    line-height: var(--fontSize);
+    cursor: pointer;
+}
+
+.game-board .tile:nth-child(1),
+.game-board .tile:nth-child(2),
+.game-board .tile:nth-child(3) {
+    border-top: none;
+    border-bottom: none;
+}
+
+.game-board .tile:nth-child(1),
+.game-board .tile:nth-child(4),
+.game-board .tile:nth-child(7) {
+    border-right: none;
+    border-left: none;
+}
+
+.game-board .tile:nth-child(3),
+.game-board .tile:nth-child(6),
+.game-board .tile:nth-child(9) {
+    border-right: none;
+    border-left: none;
+}
+
+.game-board .tile:nth-child(7),
+.game-board .tile:nth-child(8),
+.game-board .tile:nth-child(9) {
+    border-top: none;
+    border-bottom: none;
+}
+
+h1 {
+    margin: 1rem 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+hr {
+    width: 100%;
+    max-width: 100rem;
+    height: var(--lineWeight);
+    margin: 1rem 0;
+    border: none;
+    border-top: var(--lineWeight) dotted var(--colorSecondary);
+}
+
+button {
+    padding: 1rem 3rem;
+    border: none;
+    border: transparent solid var(--lineWeight);
+    background: transparent;
+    color: var(--colorText);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    appearance: none;
+}
+
+button:hover {
+    border: var(--colorSecondary) solid var(--lineWeight);
+}
+
+button:active {
+    background: var(--colorSubtle);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 40rem;
+    margin: 1rem 0;
+}
+
+#x-symbol.active,
+#o-symbol.active {
+    position: relative;
+}
+
+#x-symbol.active::before,
+#o-symbol.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--colorSecondary);
+}
+
+#x-symbol.active::before {
+    left: -1rem;
+}
+
+#o-symbol.active::before {
+    right: -1rem;
+}
+
+dialog {
+    padding: 2rem 5rem;
+    border: none;
+    border-radius: 1rem;
+    background: var(--colorModalBackground);
+    color: var(--colorText);
+    appearance: none;
+}
+
+::backdrop {
+    background: var(--colorModalBackdrop);
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 768px) {
+    .game-board {
+        width: 25rem;
+    }
+
+    .game-board .tile {
+        --fontSize: 4rem;
+    }
+}
